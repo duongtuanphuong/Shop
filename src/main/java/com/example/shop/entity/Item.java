@@ -32,8 +32,8 @@ public class Item {
     @Column(name = "quantity")
     private int quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;     
+    // @ManyToOne
+    // @JoinColumn(name = "order_id")
+    // private Order order;     
 
 }

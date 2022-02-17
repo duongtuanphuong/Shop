@@ -1,4 +1,7 @@
-package com.example.shop.model;
+package com.example.shop.model.dto;
+
+import com.example.shop.entity.Category;
+import com.example.shop.entity.Sale;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +23,7 @@ public class ProductDTO {
 
     private String image;
 
-    private CategoryDTO CategoryDTO;
+    private Category Category;
     
-    private SaleDTO saleDTO;
+    private Sale sale;
 }

@@ -19,27 +19,25 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name ="order")
+@Entity(name = "order_user")
 public class Order {
     @Id
-    @GeneratedValue(strategy =  GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
     private long id;
 
-    @Column(name = "buy_date")
+    @Column(name ="buy_date")
     private Date buyDate;
-
-    @Column(name = "status")
-    private String status;
 
     @Column(name = "price_total")
     private float priceTotal;
 
     @ManyToOne
-    @JoinColumn(name ="user_id")
-    private User buyer;
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @OneToMany(mappedBy = "order")
+    @OneToMany
     private List<Item> items;
+    
     
 }

@@ -1,5 +1,6 @@
-package com.example.shop.model;
+package com.example.shop.model.dto;
 
+import com.example.shop.entity.Order;
 import com.example.shop.entity.Product;
 
 import lombok.AllArgsConstructor;
@@ -19,5 +20,5 @@ public class ItemDTO {
 
     private int quantity;
 
-    private OrderDTO oderDTO;
+    private Order oder;
 }

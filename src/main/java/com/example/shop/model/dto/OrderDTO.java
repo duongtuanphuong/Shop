@@ -1,7 +1,9 @@
-package com.example.shop.model;
+package com.example.shop.model.dto;
 
 import java.sql.Date;
 import java.util.List;
+
+import com.example.shop.entity.Item;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,5 +24,5 @@ public class OrderDTO {
 
     private String status;
 
-    private List<ItemDTO> ItemDTO;
+    private List<Item> items;
 }

@@ -1,4 +1,6 @@
-package com.example.shop.model;
+package com.example.shop.model.dto;
+
+import com.example.shop.entity.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +15,7 @@ public class UserDTO {
 
     private String email;
 
-    // private String password;
+    private String password;
 
     private String fullname;
 
@@ -21,12 +23,12 @@ public class UserDTO {
 
     private String address;
     
-    private boolean gender;
+    private String gender;
 
     private boolean verify;
 
     private String avatar;
 
-    private RoleDTO roleDTO;
+    private Role role;
 }
 

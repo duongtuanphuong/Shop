@@ -1,6 +1,8 @@
-package com.example.shop.model;
+package com.example.shop.model.dto;
 
 import java.util.List;
+
+import com.example.shop.entity.User;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,5 +16,5 @@ public class RoleDTO {
 
     private String roleName;
 
-    private List<UserDTO> UserDTOs;
+    private List<User> users;
 }

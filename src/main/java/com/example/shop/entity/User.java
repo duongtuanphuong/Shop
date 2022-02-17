@@ -4,10 +4,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import org.springframework.data.annotation.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,7 +39,7 @@ public class User {
     private String address;
 
     @Column(name = "gender")
-    private boolean gender;
+    private String gender;
 
     @Column(name = "verify")
     private boolean verify;

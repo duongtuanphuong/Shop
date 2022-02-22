@@ -3,9 +3,11 @@ package com.example.shop.controller.admin;
 import java.util.List;
 
 import com.example.shop.entity.Category;
-import com.example.shop.model.dto.CategoryDTO;
+import com.example.shop.model.request.CreateCategoryReq;
 import com.example.shop.service.CategoryService;
+import com.example.shop.service.ProductService;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -19,32 +21,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class CategoryController {
-
     @Autowired
     private CategoryService categoryService;
 
-    @GetMapping("/admin/categories")
-    public String getCategory(Model model){
-        List<Category> categories = categoryService.findAll(); 
+    @GetMapping("/admin/category")
+    public String getListCategory(Model model){
+        List<Category> categories = categoryService.getListCategory();
         model.addAttribute("categories", categories);
         return "admin/category/list";
     }
 
-    @PostMapping("/api/admin/categories")
-    public ResponseEntity<Category> createCategory(@RequestBody CategoryDTO req){
+
+    @PostMapping("/api/admin/category")
+    public ResponseEntity<Category> createCategory(@RequestBody CreateCategoryReq req){
         Category category = categoryService.createCategory(req);
         return ResponseEntity.ok(category);
     }
 
-    @PutMapping("/api/admin/categories/{id}")
-    public ResponseEntity<?> updateCategory(@RequestBody CategoryDTO req, @PathVariable long id){
-        categoryService.updateCategory(id, req);
-        return ResponseEntity.ok("cập nhật thành công");
+    @PutMapping("/api/admin/category/{id}")
+    public ResponseEntity<?> updateCategory(@RequestBody CreateCategoryReq req,@PathVariable long id){
+        categoryService.updateCategory(req, id);
+        return ResponseEntity.ok("Cập nhật thành công");
     }
-    
-    @DeleteMapping("/api/admin/categories/{id}")
+
+    @DeleteMapping("/api/admin/category/{id}")
     public ResponseEntity<?> deleteCategory(@PathVariable long id){
         categoryService.deleteCategory(id);
-        return ResponseEntity.ok("Xóa thành công");
+        return ResponseEntity.ok("Xoá thành công");
     }
+
 }

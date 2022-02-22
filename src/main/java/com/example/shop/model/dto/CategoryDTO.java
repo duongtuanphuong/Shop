@@ -1,9 +1,5 @@
 package com.example.shop.model.dto;
 
-import java.util.List;
-
-import com.example.shop.entity.Product;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,9 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryDTO {
-    private long categoryId;
+    private long id;
 
-    private String categoryName;
+    private String name;
 
-    private List<Product> products;
 }

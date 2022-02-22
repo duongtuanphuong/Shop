@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Trang sản phẩm</h1>
+
+
+    <form action="">
+        <label for="">Tên sản phẩm</label>
+        <input type="text" id="productName">
+        <label for="">Mô tả</label>
+        <input type="text" id= "description">
+        <label for="">Giá</label>
+        <input type="text" id="price">
+        <label for="">Số lượng</label>
+        <input type="text" id="quantity">
+
+        <select name="" id="categories">
+            <th:block th:each = "category : ${categories}">
+                <option th:value="${category.CategoryId}" th:text = "${category.categoryName}"></option>
+            </th:block>
+        </select>
+
+        <select name="" id="sales">
+            <th:block th:each = "sale : ${sales}">
+                <option th:value="${sale.saleId}" th:text = "${sale.salePercent}"></option>
+            </th:block>
+        </select>
+
+        <button type="submit" id = "submit">Lưu</button>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $('#submit').click(function(){
+            let productName = $('#productName').val();
+            let description = $('#description').val();
+            let price = $('#price').val();
+            let quantity = $('#quantity').val();
+            let category = $('#categories').val();
+            let sale = $('#sales').val();
+
+            let req = {
+                productName : productName,
+                price : price,
+                quantity: quantity,
+                description: description,
+                category_Ids: category,
+                sale_id : sale
+            }
+
+            var myJson = JSON.stringify(req);
+            $.ajax({
+                url : "/api/admin/product",
+                type: "POST",
+                data: myJson,
+                contentType: "application/json; charset=utf-8",
+                success: function(e){
+                    console.log(e)
+                },
+                error:function(e){
+                    console.log(e)
+                }
+            })
+
+        })
+    </script>
+</body>
+</html>

@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "order_id")
+    @Column(name = "id")
     private long id;
 
     @Column(name ="buy_date")

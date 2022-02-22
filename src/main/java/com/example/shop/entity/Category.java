@@ -1,15 +1,18 @@
 package com.example.shop.entity;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 
-import org.hibernate.annotations.GeneratorType;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,12 +25,13 @@ import lombok.NoArgsConstructor;
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "category_id")
-    private long categoryId;
+    @Column(name = "id")
+    private long id;
 
-    @Column(name ="category_name")
-    private String categoryName;
+    @Column(name ="name")
+    private String name;
 
-    @OneToMany(mappedBy = "category")
-    private List<Product> products;
+    // @ManyToMany(mappedBy = "categories")
+    // private List<Product> products;
+
 }

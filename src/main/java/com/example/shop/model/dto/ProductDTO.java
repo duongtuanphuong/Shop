@@ -1,8 +1,5 @@
 package com.example.shop.model.dto;
 
-import com.example.shop.entity.Category;
-import com.example.shop.entity.Sale;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,10 +8,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO {
-    private long productId;
-    
-    private String productName;
-    
+    private long id;
+
+    private String name;
+
     private float price;
 
     private int quantity;
@@ -22,8 +19,4 @@ public class ProductDTO {
     private String description;
 
     private String image;
-
-    private Category Category;
-    
-    private Sale sale;
 }

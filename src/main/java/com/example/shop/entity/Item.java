@@ -19,8 +19,8 @@ import lombok.NoArgsConstructor;
 public class Item {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "item_id")
-    private long itemId;
+    @Column(name = "id")
+    private long id;
 
     @ManyToOne
     @JoinColumn(name = "product_id")

@@ -20,12 +20,12 @@ import lombok.NoArgsConstructor;
 public class Sale {
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    @Column(name = "sale_id")
-    private long saleId;
+    @Column(name = "id")
+    private long id;
 
     @Column(name = "sale_percent")
-    private String salePerent;
+    private int salePercent;
 
-    @OneToMany(mappedBy = "sale")
-    private List<Product> products;
+    // @OneToMany(mappedBy = "sale")
+    // private List<Product> products;
 }
